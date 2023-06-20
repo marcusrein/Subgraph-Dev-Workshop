@@ -137,6 +137,26 @@ export function handleTransfer(event: TransferEvent): void {
 }
 ```
 
+```graphql
+# schema.graphql
+type Transfer @entity(immutable: true) {
+	id: Bytes!
+	from: Bytes! # address
+	to: Bytes! # address
+	value: BigInt! # uint256
+	blockNumber: BigInt!
+	blockTimestamp: BigInt!
+	transactionHash: Bytes!
+	gasPrice: BigInt!
+}
+type Account @entity {
+	id: Bytes! # address
+	gasSpent: BigInt! # uint256
+}
+```
+
+### Update schema.graphql to store new account entity:
+
 Continue building your subgraph, adding more entities and mappings logic as desired.
 
 Build queries using the Playground Explorer.

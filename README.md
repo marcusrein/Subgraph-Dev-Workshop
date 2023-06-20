@@ -38,7 +38,7 @@ source:
 
 #### Key files to review in your new Cryptopunks subgraph:
 
--   subgraph.yaml (Subgraph Definition)
+-   subgraph.yaml (Subgraph Manifest)
 -   src/mappings.ts (Subgraph Logic)
 -   schema.graphql (Presented Subgraph Data)
 
@@ -63,7 +63,7 @@ type Transfer @entity(immutable: true) {
 
 #### Extend event
 
-Added `gasPrice` to `Transfer` entity:
+Added `gasPrice` to `Transfer` entity.
 
 ```graphql
 # schema.graphql
@@ -137,17 +137,26 @@ export function handleTransfer(event: TransferEvent): void {
 }
 ```
 
+Continue building your subgraph, adding more entities and mappings logic as desired.
+
+Build queries using the Playground Explorer.
+
+Reference the [The Graph GraphQL docs](https://thegraph.com/docs/en/querying/graphql-api/) to improve query accuracy.
+
 #### Compare your subgraph with Published Cryptopunks subgraph
 
 -   [Jerry Okolo's well built Cryptopunks Subgraph](https://thegraph.com/explorer/subgraphs/YqMJatbgbqy1GodtbYZv4U9NzyaScCgSF7CAE5ivAM7?view=Overview&chain=mainnet) published on The Graph Network.
 
 -   https://github.com/itsjerryokolo/CryptoPunks
 
-## Iterate on your subgraph using Jerry's Cryptopunks subgraph as inspiration
+### Iterate on your subgraph using Jerry's Cryptopunks subgraph as a reference.
+
+Happy hacking,
+Marcus
 
 ---
 
-## Good subgraphs:
+## Other good subgraphs:
 
 -   [Messari Subgraphs](https://subgraphs.messari.io)
 -   [EIP-721 (NFTS on The Graph Network)](https://thegraph.com/explorer/subgraph?id=AVZ1dGwmRGKsbDAbwvxNmXzeEkD48voB3LfGqj5w7FUS&view=Overview)
@@ -163,8 +172,7 @@ export function handleTransfer(event: TransferEvent): void {
 
 ## Info
 
--   [Contract to index](https://etherscan.io/address/0xc2c747e0f7004f9e8817db2ca4997657a7746928)
--   [Google Slides for NFT Subgraph Development Workshop](https://docs.google.com/presentation/d/1-jZd4Sp83YW6r2KhXYeU4sOlKdcmp0LVi3WF1VAkxzk/edit?usp=sharing)
+-   [Google Slides for NFT Subgraph Development Workshop](https://docs.google.com/presentation/d/1MMgXx_GrufU_o0JdFhEmqpxRKAFyMAxSdYyGO-9kfnU/edit?usp=sharing)
 -   Questions:
     -   **[twitter.com/schmid_si](https://twitter.com/schmid_si)**
     -   **[twitter.com/Marcus_Rein\_](https://twitter.com/Marcus_Rein_)**

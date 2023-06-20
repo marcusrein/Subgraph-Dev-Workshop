@@ -152,6 +152,9 @@ Reference the [The Graph GraphQL docs](https://thegraph.com/docs/en/querying/gra
 ### Iterate on your subgraph using Jerry's Cryptopunks subgraph as a reference.
 
 Happy hacking,
+
+##
+
 Marcus
 
 ---

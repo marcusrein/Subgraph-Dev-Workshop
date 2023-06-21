@@ -2,6 +2,7 @@
 
 ## Slides
 
+[Google Slides for NFT Subgraph Development Workshop](https://docs.google.com/presentation/d/1MMgXx_GrufU_o0JdFhEmqpxRKAFyMAxSdYyGO-9kfnU/edit?usp=sharing)
 [![Top Slide](./slide1.png)](https://docs.google.com/presentation/d/1-jZd4Sp83YW6r2KhXYeU4sOlKdcmp0LVi3WF1VAkxzk/edit?usp=sharing)
 
 ## Cheatsheet
@@ -29,14 +30,7 @@ Use [Miniscan](https://startblock.vercel.app/) to find important information rel
 -   Choose "yes" when asked if wanting to index events as entites.
 -   `graph deploy`... to deploy your subgraph
 
-```
-source:
-    address: "0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB"
-    abi: Cryptopunks
-    startBlock: 3914495
-```
-
-#### Key files to review in your new Cryptopunks subgraph:
+#### Review key files in your starter Cryptopunks subgraph:
 
 -   subgraph.yaml (Subgraph Manifest)
 -   src/mappings.ts (Subgraph Logic)
@@ -44,9 +38,7 @@ source:
 
 ### Start Building
 
-####Remove unused Entities and Events
-
-Lets extend the Transfer Entity. This is the Transfer entity as automatically populated by `graph-cli`:
+Lets focus on the `Transfer` entity in `schema.graphql`:
 
 ```graphql
 # schema.graphql
@@ -61,9 +53,11 @@ type Transfer @entity(immutable: true) {
 }
 ```
 
-#### Extend event
+#### Extend the `Transfer` Event
 
-Added `gasPrice` to `Transfer` entity.
+Lets create a property in the `Transfer` entity that records the gas price of the transfer.
+
+Add `gasPrice` to `Transfer` entity as such:
 
 ```graphql
 # schema.graphql
@@ -79,9 +73,10 @@ type Transfer @entity(immutable: true) {
 }
 ```
 
-#### Update mappings.ts to populate `gasPrice`
+#### Update mappings.ts to send event data to the `gasPrice` property
 
 ```typescript
+// mappings.ts
 export function handleTransfer(event: TransferEvent): void {
 	let entity = new Transfer(
 		event.transaction.hash.concatI32(event.logIndex.toI32())
@@ -100,9 +95,41 @@ export function handleTransfer(event: TransferEvent): void {
 }
 ```
 
-### Create new entity to store Account information
+### Add a new entity to store Account information
+
+This new `gasSpent` property will total gas spent by an `Account`.
+
+```graphql
+# schema.graphql
+type Transfer @entity(immutable: true) {
+	id: Bytes!
+	from: Bytes! # address
+	to: Bytes! # address
+	value: BigInt! # uint256
+	blockNumber: BigInt!
+	blockTimestamp: BigInt!
+	transactionHash: Bytes!
+	gasPrice: BigInt!
+}
+type Account @entity {
+	id: Bytes! # address
+	gasSpent: BigInt! # uint256
+}
+```
+
+### Update mappings to populate new `Account` entity
+
+You must import `BigInt` from the `graph-ts` typscript helper library to perform the `plus()` function described below.
 
 ```typescript
+// src/mappings.ts
+import { BigInt } from "@graphprotocol/graph-ts";
+```
+
+Read more about the [graph-ts](https://github.com/graphprotocol/graph-tooling/tree/main/packages/ts) helper library.
+
+```typescript
+// mappings.ts
 export function handleTransfer(event: TransferEvent): void {
 	let entity = new Transfer(
 		event.transaction.hash.concatI32(event.logIndex.toI32())
@@ -137,45 +164,40 @@ export function handleTransfer(event: TransferEvent): void {
 }
 ```
 
-```graphql
-# schema.graphql
-type Transfer @entity(immutable: true) {
-	id: Bytes!
-	from: Bytes! # address
-	to: Bytes! # address
-	value: BigInt! # uint256
-	blockNumber: BigInt!
-	blockTimestamp: BigInt!
-	transactionHash: Bytes!
-	gasPrice: BigInt!
-}
-type Account @entity {
-	id: Bytes! # address
-	gasSpent: BigInt! # uint256
-}
-```
+### Continue building your subgraph!
 
-### Update schema.graphql to store new account entity:
+-   Add more entities and mappings logic as desired.
 
-Continue building your subgraph, adding more entities and mappings logic as desired.
+-   Build queries using the Playground Explorer and reference the [The Graph GraphQL docs](https://thegraph.com/docs/en/querying/graphql-api/) to improve query accuracy.
 
-Build queries using the Playground Explorer.
-
-Reference the [The Graph GraphQL docs](https://thegraph.com/docs/en/querying/graphql-api/) to improve query accuracy.
-
-#### Compare your subgraph with Published Cryptopunks subgraph
+#### Compare your starter subgraph with a published Cryptopunks subgraph thats live on The Graph Network
 
 -   [Jerry Okolo's well built Cryptopunks Subgraph](https://thegraph.com/explorer/subgraphs/YqMJatbgbqy1GodtbYZv4U9NzyaScCgSF7CAE5ivAM7?view=Overview&chain=mainnet) published on The Graph Network.
 
 -   https://github.com/itsjerryokolo/CryptoPunks
+-   An an exercise, try answering these questions with Jerry's Cryptopunks subgraph and your Cryptopunks subgraph with well-designed queries in the subgraph Playground (ChatGPT is your friend!).
+
+```How many Cryptopunks  in total?
+How much ETH sales in total?
+10 highest value Cryptopunks transactions of all time?
+Does Vitalik have a Cryptopunk?
+How many Cryptopunks wear a Pilot Helmet?
+What account has made the most transactions ever?
+Provenance (Who owned it before? Is it really the right one?)
+If available (only on-chain market places), what is the current asking price?
+What’s the highest current bid?
+Number of transfers made in the first block of Cryptopunks deployment?
+```
 
 ### Iterate on your subgraph using Jerry's Cryptopunks subgraph as a reference.
 
+See what strategies Jerry uses in his subgraph and if you'd like to incorporate his strategies into your subgraph.
+
 Happy hacking,
 
-##
-
-Marcus
+Marcus Rein
+Dev Relations at Edge & Node
+www.twitter.com/Marcus_Rein_
 
 ---
 
@@ -195,7 +217,6 @@ Marcus
 
 ## Info
 
--   [Google Slides for NFT Subgraph Development Workshop](https://docs.google.com/presentation/d/1MMgXx_GrufU_o0JdFhEmqpxRKAFyMAxSdYyGO-9kfnU/edit?usp=sharing)
 -   Questions:
     -   **[twitter.com/schmid_si](https://twitter.com/schmid_si)**
     -   **[twitter.com/Marcus_Rein\_](https://twitter.com/Marcus_Rein_)**

@@ -53,7 +53,7 @@ type Transfer @entity(immutable: true) {
 }
 ```
 
-#### Extend the `Transfer` Event
+#### Extend the `Transfer` Entity
 
 Lets create a property in the `Transfer` entity that records the gas price of the transfer.
 
@@ -73,7 +73,7 @@ type Transfer @entity(immutable: true) {
 }
 ```
 
-#### Update mappings.ts to send event data to the `gasPrice` property
+#### Update mappings.ts to send event data to the `gasPrice` property on the Transfer entity
 
 ```typescript
 // mappings.ts
@@ -117,7 +117,7 @@ type Account @entity {
 }
 ```
 
-### Update mappings to populate new `Account` entity
+### Update mappings.ts to populate new `Account` entity
 
 You must import `BigInt` from the `graph-ts` typscript helper library to perform the `plus()` function described below.
 

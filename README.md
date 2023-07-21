@@ -1,8 +1,7 @@
-# NFT Subgraph Workshop
+# Subgraph Development and Querying Workshop
 
-## Slides
+## [ Workshop Slides ](https://docs.google.com/presentation/d/1MMgXx_GrufU_o0JdFhEmqpxRKAFyMAxSdYyGO-9kfnU/edit?usp=sharing)
 
-[Google Slides for NFT Subgraph Development Workshop](https://docs.google.com/presentation/d/1MMgXx_GrufU_o0JdFhEmqpxRKAFyMAxSdYyGO-9kfnU/edit?usp=sharing)
 [![Top Slide](./slide1.png)](https://docs.google.com/presentation/d/1-jZd4Sp83YW6r2KhXYeU4sOlKdcmp0LVi3WF1VAkxzk/edit?usp=sharing)
 
 ## Cheatsheet
@@ -13,7 +12,67 @@
 
 -   Install graph-cli: `yarn global add @graphprotocol/graph-cli`
 
-## First Steps
+# Learning Environment 1 :
+
+## Compare a Starter Subgraph with a Published Cryptopunks Subgraph Thats Live on The Graph Network
+
+### Deploy a Starter Subgraph
+
+#### 1. Gather information
+
+Use [Miniscan](https://startblock.vercel.app/) to find important information relevant to your subgraph (smart contract name, ABI, startblock).
+
+-   Cryptopunks contract on [Etherscan](https://etherscan.io/address/0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb): 0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb
+
+#### 2. Go to [Subgraph Studio](https://thegraph.com/studio/), and create a new subgraph
+
+-   Follow the instructions in Subgraph Studio to spin up a new subgraph on your local computer using `graph-cli`.
+
+-   Enter information gathered from Miniscan into `graph-cli` as prompted.
+
+-   Choose "yes" when asked if wanting to index events as entites.
+-   `graph deploy`... to deploy your subgraph
+
+## Review Key Files in your Starter Cryptopunks Subgraph.
+
+-   subgraph.yaml (Subgraph Manifest)
+-   src/mappings.ts (Subgraph Logic)
+-   schema.graphql (Presented Subgraph Data)
+
+## Compare Starter Subgraph's Key Files to Published Cryptopunks Subgraph Key Files
+
+-   [Jerry Okolo's Published Cryptopunks Subgraph](https://thegraph.com/explorer/subgraphs/YqMJatbgbqy1GodtbYZv4U9NzyaScCgSF7CAE5ivAM7?view=Overview&chain=mainnet) published on The Graph Network.
+
+-   https://github.com/itsjerryokolo/CryptoPunks
+-   See what strategies Jerry uses in his subgraph and if you'd like to incorporate his strategies into your subgraph.
+-   An an exercise, try answering these questions with Jerry's Cryptopunks subgraph and your Cryptopunks subgraph with well-designed queries in the subgraph Playground.
+
+```
+- What are the first 10 transfers in Cryptopunks history
+- Find the total value in Eth sales all punks, the total supply, and the total number of sales?
+- 10 highest value Cryptopunks transactions of all time?
+- How much ETH sales in total?
+- Does Vitalik have a Cryptopunk?
+- How many Cryptopunks wear a Pilot Helmet?
+- What account has made the most transactions ever?
+- Provenance (Who owned it before? Is it really the right one?)
+- If available (only on-chain market places), what is the current asking price?
+- What’s the highest current bid?
+- Number of transfers made in the first block of Cryptopunks deployment?
+
+```
+
+## Next steps:
+
+1. Try building with Kevin Jones' [blog](https://mirror.xyz/cryptomastery.eth/uGHEHnskoVwX-mWjAiidXfGt6QowCoKl_yX4okwZc0E) that combines ScaffoldETH-2 and Subgraphs
+
+[![Second Slide](./blog1.jpeg)](https://mirror.xyz/cryptomastery.eth/uGHEHnskoVwX-mWjAiidXfGt6QowCoKl_yX4okwZc0E)
+
+2. Try out Learning Environment 2
+
+# Learning Environment 2:
+
+## Deploy a Starter Subgraph and Extend an Entity
 
 #### 1. Gather information
 
@@ -30,15 +89,13 @@ Use [Miniscan](https://startblock.vercel.app/) to find important information rel
 -   Choose "yes" when asked if wanting to index events as entites.
 -   `graph deploy`... to deploy your subgraph
 
-#### Review key files in your starter Cryptopunks subgraph:
+#### Review key files in your starter Cryptopunks subgraph.
 
 -   subgraph.yaml (Subgraph Manifest)
 -   src/mappings.ts (Subgraph Logic)
 -   schema.graphql (Presented Subgraph Data)
 
-### Start Building
-
-Lets focus on the `Transfer` entity in `schema.graphql`:
+### Understand the Generated Transfer Entity in Schema.graphql
 
 ```graphql
 # schema.graphql
@@ -53,11 +110,11 @@ type Transfer @entity(immutable: true) {
 }
 ```
 
-#### Extend the `Transfer` Event
+#### Extend the `Transfer` Entity
 
 Lets create a property in the `Transfer` entity that records the gas price of the transfer.
 
-Add `gasPrice` to `Transfer` entity as such:
+Add `gasPrice` to `Transfer` entity:
 
 ```graphql
 # schema.graphql
@@ -69,7 +126,7 @@ type Transfer @entity(immutable: true) {
 	blockNumber: BigInt!
 	blockTimestamp: BigInt!
 	transactionHash: Bytes!
-	gasPrice: BigInt!
+	gasPrice: BigInt! ## ADDED HERE
 }
 ```
 
@@ -164,44 +221,31 @@ export function handleTransfer(event: TransferEvent): void {
 }
 ```
 
-### Continue building your subgraph!
+### Next Steps:
 
 -   Add more entities and mappings logic as desired.
 
 -   Build queries using the Playground Explorer and reference the [The Graph GraphQL docs](https://thegraph.com/docs/en/querying/graphql-api/) to improve query accuracy.
 
-#### Compare your starter subgraph with a published Cryptopunks subgraph thats live on The Graph Network
+-   Try building with Kevin Jones' [blog](https://mirror.xyz/cryptomastery.eth/uGHEHnskoVwX-mWjAiidXfGt6QowCoKl_yX4okwZc0E) that combines ScaffoldETH-2 and Subgraphs
 
--   [Jerry Okolo's well built Cryptopunks Subgraph](https://thegraph.com/explorer/subgraphs/YqMJatbgbqy1GodtbYZv4U9NzyaScCgSF7CAE5ivAM7?view=Overview&chain=mainnet) published on The Graph Network.
+[![Second Slide](./blog1.jpeg)](https://mirror.xyz/cryptomastery.eth/uGHEHnskoVwX-mWjAiidXfGt6QowCoKl_yX4okwZc0E)
 
--   https://github.com/itsjerryokolo/CryptoPunks
--   An an exercise, try answering these questions with Jerry's Cryptopunks subgraph and your Cryptopunks subgraph with well-designed queries in the subgraph Playground (ChatGPT is your friend!).
-
-```How many Cryptopunks  in total?
-How much ETH sales in total?
-10 highest value Cryptopunks transactions of all time?
-Does Vitalik have a Cryptopunk?
-How many Cryptopunks wear a Pilot Helmet?
-What account has made the most transactions ever?
-Provenance (Who owned it before? Is it really the right one?)
-If available (only on-chain market places), what is the current asking price?
-What’s the highest current bid?
-Number of transfers made in the first block of Cryptopunks deployment?
-```
-
-### Iterate on your subgraph using Jerry's Cryptopunks subgraph as a reference.
-
-See what strategies Jerry uses in his subgraph and if you'd like to incorporate his strategies into your subgraph.
+---
 
 Happy hacking,
 
 Marcus Rein
-Dev Relations at Edge & Node
-www.twitter.com/Marcus_Rein_
+
+Developer Relations and Developer Success
+
+Edge & Node
+
+https://www.twitter.com/Marcus_Rein_
 
 ---
 
-## Other good subgraphs:
+## Other example subgraphs:
 
 -   [Messari Subgraphs](https://subgraphs.messari.io)
 -   [EIP-721 (NFTS on The Graph Network)](https://thegraph.com/explorer/subgraph?id=AVZ1dGwmRGKsbDAbwvxNmXzeEkD48voB3LfGqj5w7FUS&view=Overview)
@@ -214,12 +258,6 @@ www.twitter.com/Marcus_Rein_
 -   [Live Peer](https://thegraph.com/hosted-service/subgraph/livepeer/arbitrum-one)
 -   [ENS](https://thegraph.com/hosted-service/subgraph/ensdomains/ens)
 -   [UMA on The Graph Network](https://thegraph.com/explorer/subgraph?id=41LCrgtCNBQyDiVVyZEuPxbvkBH9BxxLU3nEZst77V8o&view=Overview)
-
-## Info
-
--   Questions:
-    -   **[twitter.com/schmid_si](https://twitter.com/schmid_si)**
-    -   **[twitter.com/Marcus_Rein\_](https://twitter.com/Marcus_Rein_)**
 
 #### Other resources
 

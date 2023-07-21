@@ -252,7 +252,7 @@ Developer Relations and Developer Success
 
 Edge & Node
 
-https://www.twitter.com/Marcus_Rein_
+[https://www.twitter.com/Marcus_Rein_](https://www.twitter.com/Marcus_Rein_)
 
 ---
 

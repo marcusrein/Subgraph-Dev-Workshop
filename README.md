@@ -10,7 +10,8 @@ Open These Tabs to Code Along with Live Workshop:
 -   Cryptopunks contract address ([Etherscan](https://etherscan.io/address/0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb))
     0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb
 -   [Miniscan.xyz](https://miniscan.xyz/)
--   [Jerry Okolo's Published CryptoPunks Subgraph](https://github.com/itsjerryokolo/CryptoPunks/blob/main/schema.graphql)
+-   [Jerry Okolo's Published CryptoPunks Subgraph](https://thegraph.com/explorer/subgraphs/YqMJatbgbqy1GodtbYZv4U9NzyaScCgSF7CAE5ivAM7?view=Overview&chain=mainnet)
+    -   This subgraph's [repo](https://github.com/itsjerryokolo/CryptoPunks)
     -   This subgraph's [schema.graphql](https://github.com/itsjerryokolo/CryptoPunks/blob/main/schema.graphql)
 
 ## Cheatsheet

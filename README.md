@@ -139,7 +139,7 @@ type Transfer @entity(immutable: true) {
 }
 ```
 
-#### Update mappings.ts to send event data to the `gasPrice` property
+#### Update mappings.ts to send event data to the `gasPrice` property on the Transfer entity
 
 ```typescript
 // mappings.ts
@@ -183,7 +183,7 @@ type Account @entity {
 }
 ```
 
-### Update mappings to populate new `Account` entity
+### Update mappings.ts to populate new `Account` entity
 
 You must import `BigInt` from the `graph-ts` typscript helper library to perform the `plus()` function described below.
 

@@ -1,5 +1,7 @@
 # Subgraph Development and Querying Workshop
 
+[Live presentation of this workshop](https://www.youtube.com/watch?v=7J1lt2Ao3s0)
+
 ## [ Workshop Slides ](https://docs.google.com/presentation/d/1MMgXx_GrufU_o0JdFhEmqpxRKAFyMAxSdYyGO-9kfnU/edit?usp=sharing)
 
 [![Top Slide](./slide1.png)](https://docs.google.com/presentation/d/1-jZd4Sp83YW6r2KhXYeU4sOlKdcmp0LVi3WF1VAkxzk/edit?usp=sharing)
@@ -258,17 +260,10 @@ Edge & Node
 
 ## Other example subgraphs:
 
+-   [POAP on Gnosis Chain](https://thegraph.com/explorer/subgraphs/41xbTurY2KEHZdwFYPXAZTgRL8n4Cf3RfV3X4GSuUckp?view=Overview&chain=arbitrum-one)
 -   [Messari Subgraphs](https://subgraphs.messari.io)
 -   [EIP-721 (NFTS on The Graph Network)](https://thegraph.com/explorer/subgraph?id=AVZ1dGwmRGKsbDAbwvxNmXzeEkD48voB3LfGqj5w7FUS&view=Overview)
--   [Lens Protocol](https://thegraph.com/hosted-service/subgraph/anudit/lens-protocol)
 -   [Unlock Protocol on The Graph Network](https://thegraph.com/explorer/subgraph?id=8u7KcVRxjtTDRgEJup3UuPJk6YoRDTHNpSMk5BEpdw42&view=Overview)
--   [Open Sea Subgraph](https://thegraph.com/hosted-service/subgraph/protofire/opensea-wyvern-exchange-subgraph)
--   [LiNEAR](https://thegraph.com/hosted-service/subgraph/linear-protocol/linear)
--   [Aave Gotchi](https://thegraph.com/hosted-service/subgraph/aavegotchi/aavegotchi-core-matic)
--   [Tellor](https://thegraph.com/hosted-service/subgraph/tellor-io/tellorxoraclemainhgraph)
--   [Live Peer](https://thegraph.com/hosted-service/subgraph/livepeer/arbitrum-one)
--   [ENS](https://thegraph.com/hosted-service/subgraph/ensdomains/ens)
--   [UMA on The Graph Network](https://thegraph.com/explorer/subgraph?id=41LCrgtCNBQyDiVVyZEuPxbvkBH9BxxLU3nEZst77V8o&view=Overview)
 
 #### Other resources
 

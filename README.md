@@ -1,6 +1,6 @@
 # Subgraph Development and Querying Workshop
 
-[Live presentation of this workshop](https://www.youtube.com/watch?v=7J1lt2Ao3s0)
+## [Video presentation of this workshop](https://www.youtube.com/watch?v=7J1lt2Ao3s0)
 
 ## [ Workshop Slides ](https://docs.google.com/presentation/d/1MMgXx_GrufU_o0JdFhEmqpxRKAFyMAxSdYyGO-9kfnU/edit?usp=sharing)
 

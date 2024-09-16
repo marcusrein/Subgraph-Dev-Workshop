@@ -12,7 +12,7 @@ Open These Tabs to Code Along with Live Workshop:
 -   Cryptopunks contract address ([Etherscan](https://etherscan.io/address/0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb))
     0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb
 -   [Miniscan.xyz](https://miniscan.xyz/)
--   [Jerry Okolo's Published CryptoPunks Subgraph](https://thegraph.com/explorer/subgraphs/YqMJatbgbqy1GodtbYZv4U9NzyaScCgSF7CAE5ivAM7?view=Overview&chain=mainnet)
+-   [Jerry Okolo's Published CryptoPunks Subgraph](https://thegraph.com/explorer/subgraphs/2hTKKMwLsdfJm9N7gUeajkgg8sdJwky56Zpkvg8ZcyP8?chain=arbitrum-one&view=Query)
     -   This subgraph's [repo](https://github.com/itsjerryokolo/CryptoPunks)
     -   This subgraph's [schema.graphql](https://github.com/itsjerryokolo/CryptoPunks/blob/main/schema.graphql)
 -   [Build a dapp with ScaffoldETH-2 and Subgraphs](https://mirror.xyz/cryptomastery.eth/uGHEHnskoVwX-mWjAiidXfGt6QowCoKl_yX4okwZc0E)
@@ -54,7 +54,7 @@ Use [Miniscan](https://startblock.vercel.app/) to find important information rel
 
 ## Compare Starter Subgraph's Key Files to Published Cryptopunks Subgraph Key Files
 
--   [Jerry Okolo's Published Cryptopunks Subgraph](https://thegraph.com/explorer/subgraphs/YqMJatbgbqy1GodtbYZv4U9NzyaScCgSF7CAE5ivAM7?view=Overview&chain=mainnet) published on The Graph Network.
+-   [Jerry Okolo's Published Cryptopunks Subgraph](https://thegraph.com/explorer/subgraphs/2hTKKMwLsdfJm9N7gUeajkgg8sdJwky56Zpkvg8ZcyP8?chain=arbitrum-one&view=Query) published on The Graph Network.
 
 -   https://github.com/itsjerryokolo/CryptoPunks
 -   See what strategies Jerry uses in his subgraph and if you'd like to incorporate his strategies into your subgraph.
@@ -257,13 +257,6 @@ Edge & Node
 [https://www.twitter.com/Marcus_Rein_](https://www.twitter.com/Marcus_Rein_)
 
 ---
-
-## Other example subgraphs:
-
--   [POAP on Gnosis Chain](https://thegraph.com/explorer/subgraphs/41xbTurY2KEHZdwFYPXAZTgRL8n4Cf3RfV3X4GSuUckp?view=Overview&chain=arbitrum-one)
--   [Messari Subgraphs](https://subgraphs.messari.io)
--   [EIP-721 (NFTS on The Graph Network)](https://thegraph.com/explorer/subgraph?id=AVZ1dGwmRGKsbDAbwvxNmXzeEkD48voB3LfGqj5w7FUS&view=Overview)
--   [Unlock Protocol on The Graph Network](https://thegraph.com/explorer/subgraph?id=8u7KcVRxjtTDRgEJup3UuPJk6YoRDTHNpSMk5BEpdw42&view=Overview)
 
 #### Other resources
 

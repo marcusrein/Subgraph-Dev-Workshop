@@ -1,0 +1,35 @@
+specVersion: 1.2.0
+indexerHints:
+  prune: auto
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: WrappedMonad
+    network: monad-testnet
+    source:
+      address: "0x760AfE86e5de5fa0Ee542fc7B7B713e1c5425701"
+      abi: WrappedMonad
+      startBlock: 9000000
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.9
+      language: wasm/assemblyscript
+      entities:
+        - Approval
+        - Deposit
+        - Transfer
+        - Withdrawal
+      abis:
+        - name: WrappedMonad
+          file: ./abis/WrappedMonad.json
+      eventHandlers:
+        - event: Approval(indexed address,indexed address,uint256)
+          handler: handleApproval
+        - event: Deposit(indexed address,uint256)
+          handler: handleDeposit
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+        - event: Withdrawal(indexed address,uint256)
+          handler: handleWithdrawal
+      file: ./src/wrapped-monad.ts

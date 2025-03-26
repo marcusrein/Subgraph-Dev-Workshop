@@ -1,0 +1,37 @@
+type Approval @entity(immutable: true) {
+  id: Bytes!
+  src: Bytes! # address
+  guy: Bytes! # address
+  wad: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Deposit @entity(immutable: true) {
+  id: Bytes!
+  dst: Bytes! # address
+  wad: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Transfer @entity(immutable: true) {
+  id: Bytes!
+  src: Bytes! # address
+  dst: Bytes! # address
+  wad: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Withdrawal @entity(immutable: true) {
+  id: Bytes!
+  src: Bytes! # address
+  wad: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}

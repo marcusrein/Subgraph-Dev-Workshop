@@ -35,7 +35,7 @@ Subgraph Studio is your development workspace where you can:
 
 Follow these steps in Subgraph Studio to set up and deploy your subgraph:
 
-![Subgraph Studio Setup Steps](@Subgraph-Studio.png)
+![Subgraph Studio Setup Steps](Subgraph-Studio.png)
 
 ### 1. Select a Network
 Choose `Monad TESTNET` from the network dropdown in Subgraph Studio, as shown in step 1 of the image above.

@@ -33,15 +33,13 @@ Open These Tabs to Code Along with Live Workshop:
 
 #### 1. Gather information
 
-Use [Miniscan](https://startblock.vercel.app/) to find important information relevant to your subgraph (smart contract name, ABI, startblock).
+Use [Cana](https://www.npmjs.com/package/contract-analyzer) to find important information relevant to your subgraph (smart contract name, ABI, startblock).
 
 -   Cryptopunks contract on [Etherscan](https://etherscan.io/address/0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb): 0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb
 
 #### 2. Go to [Subgraph Studio](https://thegraph.com/studio/), and create a new subgraph
 
 -   Follow the instructions in Subgraph Studio to spin up a new subgraph on your local computer using `graph-cli`.
-
--   Enter information gathered from Miniscan into `graph-cli` as prompted.
 
 -   Choose "yes" when asked if wanting to index events as entites.
 -   `graph deploy`... to deploy your subgraph

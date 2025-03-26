@@ -1,269 +1,179 @@
-# Subgraph Development and Querying Workshop
+# Welcome to Monad Subgraph Development! 🚀
+
+Want to index your smart contract on Monad? You're in the right place! This guide will help you get started with creating your first subgraph on Monad.
 
 ## [Video presentation of this workshop](https://www.youtube.com/watch?v=7J1lt2Ao3s0)
 
 ## [ Workshop Slides ](https://docs.google.com/presentation/d/1MMgXx_GrufU_o0JdFhEmqpxRKAFyMAxSdYyGO-9kfnU/edit?usp=sharing)
 
-[![Top Slide](./slide1.png)](https://docs.google.com/presentation/d/1-jZd4Sp83YW6r2KhXYeU4sOlKdcmp0LVi3WF1VAkxzk/edit?usp=sharing)
+## What is a Subgraph?
 
-Open These Tabs to Code Along with Live Workshop:
-
--   [Subgraph Studio](https://www.thegraph.com/studio)
--   Cryptopunks contract address ([Etherscan](https://etherscan.io/address/0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb))
-    0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb
--   [Miniscan.xyz](https://miniscan.xyz/)
--   [Jerry Okolo's Published CryptoPunks Subgraph](https://thegraph.com/explorer/subgraphs/2hTKKMwLsdfJm9N7gUeajkgg8sdJwky56Zpkvg8ZcyP8?chain=arbitrum-one&view=Query)
-    -   This subgraph's [repo](https://github.com/itsjerryokolo/CryptoPunks)
-    -   This subgraph's [schema.graphql](https://github.com/itsjerryokolo/CryptoPunks/blob/main/schema.graphql)
--   [Build a dapp with ScaffoldETH-2 and Subgraphs](https://mirror.xyz/cryptomastery.eth/uGHEHnskoVwX-mWjAiidXfGt6QowCoKl_yX4okwZc0E)
-
-## Cheatsheet
-
-[![Cheatsheet](./cheatsheet.png)](./cheatsheet_Design_ETH_SF.pdf)
+A subgraph is like a custom API for your smart contract. It indexes blockchain data so you can query it easily and efficiently.
 
 ## Prerequisites
 
--   Install graph-cli: `yarn global add @graphprotocol/graph-cli`
+Before you begin development, you'll need to set up your subgraph in Subgraph Studio:
 
-# Learning Environment 1 :
+1. Visit [Subgraph Studio](https://thegraph.com/studio/) and connect your wallet
+2. Click "Create a Subgraph" and give it a name
+   - Choose a memorable name as this will be your subgraph's identifier
+   - This name will be used in deployment commands later
 
-## Compare a Starter Subgraph with a Published Cryptopunks Subgraph Thats Live on The Graph Network
+After completing these steps, you can proceed with the local development setup below.
 
-### Deploy a Starter Subgraph
+## Getting Started
 
-#### 1. Gather information
+Follow these steps in Subgraph Studio to set up and deploy your subgraph:
 
-Use [Cana](https://www.npmjs.com/package/contract-analyzer) to find important information relevant to your subgraph (smart contract name, ABI, startblock).
+![Subgraph Studio Setup Steps](@Subgraph-Studio.png)
 
--   Cryptopunks contract on [Etherscan](https://etherscan.io/address/0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb): 0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb
+### 1. Select a Network
+Choose `Monad TESTNET` from the network dropdown in Subgraph Studio, as shown in step 1 of the image above.
 
-#### 2. Go to [Subgraph Studio](https://thegraph.com/studio/), and create a new subgraph
+### 2. Install Graph CLI
+Skip this step if you have done this before, as noted in step 2 of the interface.
 
--   Follow the instructions in Subgraph Studio to spin up a new subgraph on your local computer using `graph-cli`.
+```bash
+# Using yarn (recommended)
+yarn global add @graphprotocol/graph-cli
 
--   Choose "yes" when asked if wanting to index events as entites.
--   `graph deploy`... to deploy your subgraph
+# Using npm
+npm install -g @graphprotocol/graph-cli
 
-## Review Key Files in your Starter Cryptopunks Subgraph.
-
--   subgraph.yaml (Subgraph Manifest)
--   src/mappings.ts (Subgraph Logic)
--   schema.graphql (Presented Subgraph Data)
-
-## Compare Starter Subgraph's Key Files to Published Cryptopunks Subgraph Key Files
-
--   [Jerry Okolo's Published Cryptopunks Subgraph](https://thegraph.com/explorer/subgraphs/2hTKKMwLsdfJm9N7gUeajkgg8sdJwky56Zpkvg8ZcyP8?chain=arbitrum-one&view=Query) published on The Graph Network.
-
--   https://github.com/itsjerryokolo/CryptoPunks
--   See what strategies Jerry uses in his subgraph and if you'd like to incorporate his strategies into your subgraph.
--   An an exercise, try answering these questions with Jerry's Cryptopunks subgraph and your Cryptopunks subgraph with well-designed queries in the subgraph Playground.
-
-```
-- What are the first 10 transfers in Cryptopunks history
-- Find the total value in Eth sales all punks, the total supply, and the total number of sales?
-- 10 highest value Cryptopunks transactions of all time?
-- How much ETH sales in total?
-- Does Vitalik have a Cryptopunk?
-- How many Cryptopunks wear a Pilot Helmet?
-- What account has made the most transactions ever?
-- Provenance (Who owned it before? Is it really the right one?)
-- If available (only on-chain market places), what is the current asking price?
-- What’s the highest current bid?
-- Number of transfers made in the first block of Cryptopunks deployment?
-
+# Using pnpm
+pnpm add -g @graphprotocol/graph-cli
 ```
 
-## Next steps:
+### 3. Initialize Your Subgraph
+This step scaffolds the boilerplate subgraph code, as shown in step 3 of the interface.
 
-1. Try building with Kevin Jones' [blog](https://mirror.xyz/cryptomastery.eth/uGHEHnskoVwX-mWjAiidXfGt6QowCoKl_yX4okwZc0E) that combines ScaffoldETH-2 and Subgraphs
+```bash
+graph init monad-subgraph
+```
 
-[![Second Slide](./blog1.jpeg)](https://mirror.xyz/cryptomastery.eth/uGHEHnskoVwX-mWjAiidXfGt6QowCoKl_yX4okwZc0E)
+When prompted, enter:
+- Contract Address: `0x760AfE86e5de5fa0Ee542fc7B7B713e1c5425701`
+- Start Block: `9000000`
 
-2. Try out Learning Environment 2
+Note: If the Monad Testnet endpoint doesn't return data, you can find the ABI in `abi.json` at the root of this project. The CLI will return data properly when Mainnet is operational.
 
-# Learning Environment 2:
+### 4. Authenticate & Deploy
+Following step 4 in the interface above:
 
-## Deploy a Starter Subgraph and Extend an Entity
+```bash
+# Authenticate your local environment with Subgraph Studio
+graph auth --studio <DEPLOY-KEY>
 
-#### 1. Gather information
+# Navigate to your subgraph directory
+cd monad-subgraph
 
-Use [Miniscan](https://startblock.vercel.app/) to find important information relevant to your subgraph (smart contract name, ABI, startblock).
+# Generate code and build
+graph codegen && graph build
 
--   Cryptopunks contract on [Etherscan](https://etherscan.io/address/0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb)
+# Deploy to Subgraph Studio
+graph deploy monad-subgraph
+```
 
-#### 2. Go to [Subgraph Studio](https://thegraph.com/studio/), and create a new subgraph
+That's it! Your subgraph will start indexing data from your smart contract. 🎉
 
--   Follow the instructions in Subgraph Studio to spin up a new subgraph on your local computer using `graph-cli`.
+## Project Structure
 
--   Enter information gathered from MiniScan into `graph-cli` as prompted.
+Here's what each file in your project does:
 
--   Choose "yes" when asked if wanting to index events as entites.
--   `graph deploy`... to deploy your subgraph
+```
+monad-subgraph/
+├── schema.graphql     # Define your data structure
+├── subgraph.yaml     # Configure your subgraph
+├── src/              # Your indexing logic lives here
+└── abis/            # Your contract's ABI goes here
+```
 
-#### Review key files in your starter Cryptopunks subgraph.
+## Need Help?
 
--   subgraph.yaml (Subgraph Manifest)
--   src/mappings.ts (Subgraph Logic)
--   schema.graphql (Presented Subgraph Data)
+- Visit [Monad Testnet Explorer](https://testnet.monadexplorer.com)
+- Join [The Graph Discord](https://thegraph.com/discord)
+- Check [The Graph Docs](https://thegraph.com/docs/)
 
-### Understand the Generated Transfer Entity in Schema.graphql
+## Example Queries
+
+Once your subgraph is deployed, you can query it! Here's a simple example:
 
 ```graphql
-# schema.graphql
-type Transfer @entity(immutable: true) {
-	id: Bytes!
-	from: Bytes! # address
-	to: Bytes! # address
-	value: BigInt! # uint256
-	blockNumber: BigInt!
-	blockTimestamp: BigInt!
-	transactionHash: Bytes!
+{
+  transfers(first: 5) {
+    from
+    to
+    value
+  }
 }
 ```
 
-#### Extend the `Transfer` Entity
+## Advanced Features & Best Practices
 
-Lets create a property in the `Transfer` entity that records the gas price of the transfer.
-
-Add `gasPrice` to `Transfer` entity:
+### Aggregations and Time-Series Data
+Subgraphs support powerful aggregation features. Here's an example of daily volume tracking:
 
 ```graphql
-# schema.graphql
-type Transfer @entity(immutable: true) {
-	id: Bytes!
-	from: Bytes! # address
-	to: Bytes! # address
-	value: BigInt! # uint256
-	blockNumber: BigInt!
-	blockTimestamp: BigInt!
-	transactionHash: Bytes!
-	gasPrice: BigInt! ## ADDED HERE
+{
+  dayData(first: 7, orderBy: date, orderDirection: desc) {
+    date
+    volumeUSD
+    txCount
+    activeUsers
+  }
 }
 ```
 
-#### Update mappings.ts to send event data to the `gasPrice` property on the Transfer entity
+### Advanced Features Guide
+Learn how to implement these powerful features in your subgraph:
 
-```typescript
-// mappings.ts
-export function handleTransfer(event: TransferEvent): void {
-	let entity = new Transfer(
-		event.transaction.hash.concatI32(event.logIndex.toI32())
-	);
-	entity.from = event.params.from;
-	entity.to = event.params.to;
-	entity.value = event.params.value;
+1. **Time-Series Data**
+   - [Time-Series Guide](https://thegraph.com/docs/en/cookbook/timeseries/) - Track historical data and create charts
+   - Example: Daily, hourly, or custom interval aggregations
 
-	entity.blockNumber = event.block.number;
-	entity.blockTimestamp = event.block.timestamp;
-	entity.transactionHash = event.transaction.hash;
+2. **Derived Fields**
+   - [Using Derived Fields](https://thegraph.com/docs/en/cookbook/derivedfrom/) - Calculate values from other entities
+   - Perfect for price calculations and aggregations
 
-	entity.gasPrice = event.transaction.gasPrice;
+3. **Performance Optimization**
+   - [Avoiding ETH Calls](https://thegraph.com/docs/en/cookbook/avoid-eth-calls/) - Make your subgraph faster
+   - [Pruning Strategies](https://thegraph.com/docs/en/cookbook/pruning/) - Optimize data storage
 
-	entity.save();
-}
-```
+4. **Entity Relationships**
+   - [Entity Relationships Guide](https://thegraph.com/docs/en/developing/creating-a-subgraph/#entity-relationships)
+   - Create complex data models with one-to-many and many-to-many relationships
 
-### Add a new entity to store Account information
+For more advanced patterns and examples, check out:
+- [Example Subgraphs Repository](https://github.com/graphprotocol/graph-tooling/tree/main/examples)
+- [The Graph Cookbook](https://thegraph.com/docs/en/cookbook/quick-start/)
 
-This new `gasSpent` property will total gas spent by an `Account`.
-
-```graphql
-# schema.graphql
-type Transfer @entity(immutable: true) {
-	id: Bytes!
-	from: Bytes! # address
-	to: Bytes! # address
-	value: BigInt! # uint256
-	blockNumber: BigInt!
-	blockTimestamp: BigInt!
-	transactionHash: Bytes!
-	gasPrice: BigInt!
-}
-type Account @entity {
-	id: Bytes! # address
-	gasSpent: BigInt! # uint256
-}
-```
-
-### Update mappings.ts to populate new `Account` entity
-
-You must import `BigInt` from the `graph-ts` typscript helper library to perform the `plus()` function described below.
-
-```typescript
-// src/mappings.ts
-import { BigInt } from "@graphprotocol/graph-ts";
-```
-
-Read more about the [graph-ts](https://github.com/graphprotocol/graph-tooling/tree/main/packages/ts) helper library.
-
-```typescript
-// mappings.ts
-export function handleTransfer(event: TransferEvent): void {
-	let entity = new Transfer(
-		event.transaction.hash.concatI32(event.logIndex.toI32())
-	);
-	entity.from = event.params.from;
-	entity.to = event.params.to;
-	entity.value = event.params.value;
-
-	entity.blockNumber = event.block.number;
-	entity.blockTimestamp = event.block.timestamp;
-	entity.transactionHash = event.transaction.hash;
-	entity.gasPrice = event.transaction.gasPrice;
-
-	entity.save();
-
-	// Load account from store. If account does not exist, create an account and set the gasSpent to 0.
-
-	let account = Account.load(
-		event.transaction.hash.concatI32(event.block.hash.toI32())
-	);
-	if (account == null) {
-		account = new Account(
-			event.transaction.hash.concatI32(event.block.hash.toI32())
-		);
-		account.gasSpent = BigInt.fromI32(0);
-	}
-
-	// Add the gas price of the current transaction to the total gas spent
-	account.gasSpent = account.gasSpent.plus(event.transaction.gasPrice);
-
-	account.save();
-}
-```
-
-### Next Steps:
-
--   Add more entities and mappings logic as desired.
-
--   Build queries using the Playground Explorer and reference the [The Graph GraphQL docs](https://thegraph.com/docs/en/querying/graphql-api/) to improve query accuracy.
-
--   Try building with Kevin Jones' [blog](https://mirror.xyz/cryptomastery.eth/uGHEHnskoVwX-mWjAiidXfGt6QowCoKl_yX4okwZc0E) that combines ScaffoldETH-2 and Subgraphs
-
-[![Second Slide](./blog1.jpeg)](https://mirror.xyz/cryptomastery.eth/uGHEHnskoVwX-mWjAiidXfGt6QowCoKl_yX4okwZc0E)
+Happy indexing! 🎈
 
 ---
+Questions? Join The Graph community:
+- [Discord](https://discord.gg/graphprotocol)
+- [Twitter](https://twitter.com/graphprotocol)
+- [Forum](https://forum.thegraph.com/)
 
-Happy hacking,
+## 📚 Learning Resources
 
-Marcus Rein
+### Quick Start Videos
+- [How to Deploy a Subgraph](https://www.youtube.com/watch?v=nGIFuC69bSA) (12 min)
+- [Quick Bootstrap a Fullstack Dapp Subgraph](https://www.youtube.com/watch?v=obOEMAZ-05s)
 
-Developer Relations and Developer Success
+### In-Depth Tutorials
+- [Build a Full Stack Dapp](https://www.youtube.com/live/Gspa3YL6Rqk?si=sS3xaxjoW8H73CJW) (1hr 37min)
+  - [📂 Workshop Repository](https://github.com/kmjones1979/full-stack-dapp-workshop)
+- [Build a dApp with The Graph and Scaffold-ETH-2](https://mirror.xyz/cryptomastery.eth/uGHEHnskoVwX-mWjAiidXfGt6QowCoKl_yX4okwZc0E) (≈20min project)
 
-Edge & Node
+### Advanced Topics
+- [How to Index Factory Pattern Smart Contracts](https://thegraph.com/blog/data-source-templates/)
+- [Example Subgraphs Repository](https://github.com/graphprotocol/graph-tooling/tree/main/examples)
 
-[https://www.twitter.com/Marcus_Rein_](https://www.twitter.com/Marcus_Rein_)
-
----
-
-#### Other resources
-
--   https://github.com/schmidsi/hackathon-starterkit
--   https://github.com/scaffold-eth/scaffold-eth#-scaffold-eth
--   https://github.com/Developer-DAO/resources
--   https://dev.to/dabit3/the-complete-guide-to-full-stack-ethereum-development-3j13
--   https://github.com/itsjerryokolo/CryptoPunks
--   https://github.com/dabit3/building-a-subgraph-workshop
--   https://thegraph.com/docs/developer/quick-start
--   https://thegraph.com/discord
--   https://protean-labs.github.io/subgrounds/
+### Best Practices Guides
+- [Pruning Strategies](https://thegraph.com/docs/en/cookbook/pruning/)
+- [Using Derived Fields](https://thegraph.com/docs/en/cookbook/derivedfrom/)
+- [Immutable Entities & Bytes as IDs](https://thegraph.com/docs/en/cookbook/immutable-entities-bytes-as-ids/)
+- [Avoiding ETH Calls](https://thegraph.com/docs/en/cookbook/avoid-eth-calls/)
+- [Time Series Data](https://thegraph.com/docs/en/subgraphs/cookbook/timeseries/)
+- [Grafting & Hotfixes](https://thegraph.com/docs/en/subgraphs/cookbook/grafting-hotfix/)

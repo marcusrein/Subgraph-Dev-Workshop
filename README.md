@@ -21,6 +21,16 @@ Before you begin development, you'll need to set up your subgraph in Subgraph St
 
 After completing these steps, you can proceed with the local development setup below.
 
+## Development Workflow
+
+### Subgraph Studio (Development Environment)
+Subgraph Studio is your development workspace where you can:
+- Iterate and test your subgraph with rate-limited queries
+- Use version control to track changes
+- Test queries in the playground
+- View detailed indexing status
+- Debug and optimize your subgraph
+
 ## Getting Started
 
 Follow these steps in Subgraph Studio to set up and deploy your subgraph:
@@ -88,27 +98,24 @@ monad-subgraph/
 └── abis/            # Your contract's ABI goes here
 ```
 
+### Publishing Your Subgraph
+When your subgraph is ready for production:
+1. Test thoroughly in Subgraph Studio
+2. Click "Publish" in the Subgraph Studio UI
+3. Your subgraph will be deployed to The Graph's decentralized network
+4. Queries will no longer be rate-limited
+5. Your subgraph will be available in the Graph Explorer
+
+### Example Published Subgraph
+You can view our demo published subgraph here:
+[Monad Subgraph Example](https://thegraph.com/explorer/subgraphs/7VNB7aPTL7Rjc2zdAKkajcCKCu565wDjceDcvhVabVED?view=Query&chain=arbitrum-one)
+
 ## Need Help?
 
-- Visit [Monad Testnet Explorer](https://testnet.monadexplorer.com)
 - Join [The Graph Discord](https://thegraph.com/discord)
 - Check [The Graph Docs](https://thegraph.com/docs/)
 
-## Example Queries
-
-Once your subgraph is deployed, you can query it! Here's a simple example:
-
-```graphql
-{
-  transfers(first: 5) {
-    from
-    to
-    value
-  }
-}
-```
-
-## Advanced Features & Best Practices
+## More Features & Best Practices
 
 ### Aggregations and Time-Series Data
 Subgraphs support powerful aggregation features. Here's an example of daily volume tracking:
@@ -148,12 +155,6 @@ For more advanced patterns and examples, check out:
 - [The Graph Cookbook](https://thegraph.com/docs/en/cookbook/quick-start/)
 
 Happy indexing! 🎈
-
----
-Questions? Join The Graph community:
-- [Discord](https://discord.gg/graphprotocol)
-- [Twitter](https://twitter.com/graphprotocol)
-- [Forum](https://forum.thegraph.com/)
 
 ## 📚 Learning Resources
 

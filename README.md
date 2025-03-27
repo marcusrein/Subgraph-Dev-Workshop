@@ -2,6 +2,8 @@
 
 This guide will help you get started with creating your first subgraph with The Graph to index your Monad smart contract.
 
+Walkthrough of this repo: https://youtu.be/XzKxQi-d2uA
+
 Key features of The Graph:
 - Decentralized indexing
 - No vendor lock in 
@@ -11,7 +13,7 @@ Key features of The Graph:
 - Highly performant 
 - Free rate limited development environment
 
-## [Video presentation of this workshop](https://www.youtube.com/watch?v=7J1lt2Ao3s0)
+## [Video presentation of Quickstart to Subgraph Development workshop](https://www.youtube.com/watch?v=7J1lt2Ao3s0)
 
 ## [ Workshop Slides ](https://docs.google.com/presentation/d/1MMgXx_GrufU_o0JdFhEmqpxRKAFyMAxSdYyGO-9kfnU/edit?usp=sharing)
 

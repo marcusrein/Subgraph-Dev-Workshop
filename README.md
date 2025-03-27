@@ -1,6 +1,15 @@
 # Welcome to Monad Subgraph Development! 🚀
 
-Want to index your smart contract on Monad? You're in the right place! This guide will help you get started with creating your first subgraph on Monad.
+This guide will help you get started with creating your first subgraph with The Graph to index your Monad smart contract.
+
+Key features of The Graph:
+- Decentralized indexing
+- No vendor lock in 
+- Highly customizable APIs (subgraphs!)
+- Competitive pricing for dapps that scale
+- Competitive indexing marketplace that competes for your queries
+- Highly performant 
+- Free rate limited development environment
 
 ## [Video presentation of this workshop](https://www.youtube.com/watch?v=7J1lt2Ao3s0)
 
@@ -60,6 +69,8 @@ This step scaffolds the boilerplate subgraph code, as shown in step 3 of the int
 ```bash
 graph init monad-subgraph
 ```
+
+For the sake of this example subgraph, we will index Wrapped Monad. 
 
 When prompted, enter:
 - Contract Address: `0x760AfE86e5de5fa0Ee542fc7B7B713e1c5425701`
@@ -131,7 +142,7 @@ Subgraphs support powerful aggregation features. Here's an example of daily volu
 }
 ```
 
-### Advanced Features Guide
+### Advanced Features Guide - Useful for DEXs, NFTs, and more!
 Learn how to implement these powerful features in your subgraph:
 
 1. **Time-Series Data**

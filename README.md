@@ -5,7 +5,7 @@ This guide will help you get started with creating your first subgraph with The 
 Key features of The Graph:
 - Decentralized indexing
 - No vendor lock in 
-- Highly customizable APIs (subgraphs!)
+- Highly customizable APIs (subgraphs!) that are adaptable to your needs
 - Competitive pricing for dapps that scale
 - Competitive indexing marketplace that competes for your queries
 - Highly performant 

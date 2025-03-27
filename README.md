@@ -95,7 +95,7 @@ graph codegen && graph build
 graph deploy monad-subgraph
 ```
 
-That's it! Your subgraph will start indexing data from your smart contract. 🎉
+That's it! Your subgraph will start indexing data from the Wrapped Monad smart contract. 🎉
 
 ## Project Structure
 
@@ -109,7 +109,7 @@ monad-subgraph/
 └── abis/            # Your contract's ABI goes here
 ```
 
-### Publishing Your Subgraph
+### Publishing This Example Subgraph
 When your subgraph is ready for production:
 1. Test thoroughly in Subgraph Studio
 2. Click "Publish" in the Subgraph Studio UI
@@ -120,6 +120,10 @@ When your subgraph is ready for production:
 ### Example Published Subgraph
 You can view our demo published subgraph here:
 [Monad Subgraph Example](https://thegraph.com/explorer/subgraphs/7VNB7aPTL7Rjc2zdAKkajcCKCu565wDjceDcvhVabVED?view=Query&chain=arbitrum-one)
+
+## Now Build Your Own!
+
+Go through this flow again but this time with your own smart contract!
 
 ## Need Help?
 

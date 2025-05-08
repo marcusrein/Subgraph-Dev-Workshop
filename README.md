@@ -72,11 +72,7 @@ Instead, use [Cana](https://www.npmjs.com/package/contract-analyzer) to find imp
 
 ## Next steps:
 
-1. Try building with Kevin Jones' [blog](https://mirror.xyz/cryptomastery.eth/uGHEHnskoVwX-mWjAiidXfGt6QowCoKl_yX4okwZc0E) that combines ScaffoldETH-2 and Subgraphs
-
-[![Second Slide](./blog1.jpeg)](https://mirror.xyz/cryptomastery.eth/uGHEHnskoVwX-mWjAiidXfGt6QowCoKl_yX4okwZc0E)
-
-2. Try out Learning Environment 2
+Try out Learning Environment 2!
 
 # Learning Environment 2:
 

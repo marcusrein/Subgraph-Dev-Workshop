@@ -11,15 +11,10 @@ Open These Tabs to Code Along with Live Workshop:
 -   [Subgraph Studio](https://www.thegraph.com/studio)
 -   Cryptopunks contract address ([Etherscan](https://etherscan.io/address/0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb))
     0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb
--   [Miniscan.xyz](https://miniscan.xyz/)
 -   [Jerry Okolo's Published CryptoPunks Subgraph](https://thegraph.com/explorer/subgraphs/2hTKKMwLsdfJm9N7gUeajkgg8sdJwky56Zpkvg8ZcyP8?chain=arbitrum-one&view=Query)
     -   This subgraph's [repo](https://github.com/itsjerryokolo/CryptoPunks)
     -   This subgraph's [schema.graphql](https://github.com/itsjerryokolo/CryptoPunks/blob/main/schema.graphql)
 -   [Build a dapp with ScaffoldETH-2 and Subgraphs](https://mirror.xyz/cryptomastery.eth/uGHEHnskoVwX-mWjAiidXfGt6QowCoKl_yX4okwZc0E)
-
-## Cheatsheet
-
-[![Cheatsheet](./cheatsheet.png)](./cheatsheet_Design_ETH_SF.pdf)
 
 ## Prerequisites
 
@@ -33,7 +28,9 @@ Open These Tabs to Code Along with Live Workshop:
 
 #### 1. Gather information
 
-Use [Cana](https://www.npmjs.com/package/contract-analyzer) to find important information relevant to your subgraph (smart contract name, ABI, startblock).
+Miniscan.xyz was deprecated.
+
+Instead, use [Cana](https://www.npmjs.com/package/contract-analyzer) to find important information relevant to your subgraph (smart contract name, ABI, startblock).
 
 -   Cryptopunks contract on [Etherscan](https://etherscan.io/address/0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb): 0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb
 
